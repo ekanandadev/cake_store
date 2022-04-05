@@ -1,0 +1,59 @@
+// Create User Table
+CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(50) NOT NULL,
+    `username` varchar(50) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `role` enum('admin','user') NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
+
+// Create Categories Table
+CREATE TABLE `categories` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `category_name` varchar(50) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
+
+// Data Sample Categories Table
+INSERT INTO `categories` (`id`, `category_name`) VALUES (NULL, 'Jajan Pasar');
+INSERT INTO `categories` (`id`, `category_name`) VALUES (NULL, 'Roti');
+INSERT INTO `categories` (`id`, `category_name`) VALUES (NULL, 'Kue Kering');
+
+// Create Items Table
+CREATE TABLE `items` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `item_name` varchar(50) NOT NULL,
+    `category_id` int(11) NOT NULL,
+    `price` int(11) NOT NULL,
+    `stock` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
+
+// Create Orders Table
+CREATE TABLE `orders` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) NOT NULL,
+    `customer_name` varchar(50) NOT NULL,
+    `total_price` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
+
+CREATE TABLE `order_details` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `order_id` int(11) NOT NULL,
+    `item_id` int(11) NOT NULL,
+    `qty` int(11) NOT NULL,
+    `item_price` int(11) NOT NULL,
+    `total_price` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
+
+// Create Carts Table
+CREATE TABLE `carts` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) NOT NULL,
+    `item_id` int(11) NOT NULL,
+    `qty` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
