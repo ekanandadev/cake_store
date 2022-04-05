@@ -17,6 +17,14 @@ switch ($page) {
         include "pages/carts.php";
         break;
 
+    case 'transactions':
+        include "pages/transactions.php";
+        break;
+
+    case 'transactions_detail':
+        include "pages/transactions_detail.php";
+        break;
+
     default:
         include "pages/home.php";
 }

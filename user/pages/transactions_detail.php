@@ -2,7 +2,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Daftar Keranjang</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Daftar Pesanan</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -20,7 +20,6 @@
                 <tbody>
                     <?php
                     $no = 1;
-                    $total_price = 0;
                     $sql = "SELECT * FROM carts WHERE `user_id` = '1' ";
                     $query = mysqli_query($mysqli, $sql);
                     while ($cart = mysqli_fetch_array($query)) {
@@ -39,7 +38,6 @@
                             <td><?php echo $item['price'] * $cart['qty'] ?></td>
                         </tr>
                     <?php
-                        $total_price = $total_price + ($item['price'] * $cart['qty']);
                         $no++;
                     }
                     ?>
@@ -48,12 +46,9 @@
         </div>
     </div>
     <div class="card-footer">
-        <form action="action/order.php" method="POST">
-            <input type="hidden" name="user_id" value="1">
-            <input type="hidden" name="customer_name" value="Putra">
-            <input type="hidden" name="total_price" value="<?php echo $total_price ?>">
-            <button type="submit" value="Order" name="order" class="btn btn-sm btn-primary btn-icon-split float-right">
-                <span class="text">Order</span>
+        <form action="action/payment.php" method="POST" target="_blank">
+            <button type="submit" value="Pay" name="pay" class="btn btn-sm btn-primary btn-icon-split float-right">
+                <span class="text">Bayar</span>
             </button>
         </form>
     </div>

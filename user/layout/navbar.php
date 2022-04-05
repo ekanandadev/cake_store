@@ -12,6 +12,14 @@
             </a>
         </li>
 
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link" href="index.php?page=transactions">
+                <i class="fa fa-shopping-cart"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+            </a>
+        </li>
+
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
