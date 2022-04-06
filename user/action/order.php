@@ -27,7 +27,7 @@ if (isset($_POST['order'])) {
             $queryDetail = mysqli_query($mysqli, $sqlDetail);
             $sqlDelete = "DELETE FROM `carts` WHERE `id` = '$cart[id]' ";
             $queryDelete = mysqli_query($mysqli, $sqlDelete);
-            header('Location: ../index.php?page=item_detail&status=failure&item_id=' . $item_id);
+            header('Location: ../index.php?page=transaction_detail&status=successs&id='.$last_id);
         }
     } else {
         header('Location: ../index.php?page=item_detail&status=failure&item_id=' . $item_id);

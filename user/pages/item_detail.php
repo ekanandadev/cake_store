@@ -8,6 +8,26 @@ $query = mysqli_query($mysqli, $sql);
 $item = mysqli_fetch_array($query);
 ?>
 
+<?php
+if (isset($_GET['status'])) {
+?>
+    <div class="alert alert-success text-black" role="alert">
+        <?php echo $_GET['status'] ?>
+    </div>
+<?php
+}
+?>
+
+<?php
+if (isset($_GET['error'])) {
+?>
+    <div class="alert alert-danger text-black" role="alert">
+        <?php echo $_GET['error'] ?>
+    </div>
+<?php
+}
+?>
+
 <div class="row mt-4">
     <div class="col-xl-4 col-md-5 mb-4">
         <div class="card shadow mb-4">
@@ -51,9 +71,9 @@ $item = mysqli_fetch_array($query);
                 </table>
             </div>
             <div class="card-footer">
-                <form role="form" action="action/payment.php" method="POST">
+                <form role="form" action="action/cart.php" method="POST">
                     <input type="hidden" name="user_id" value="1">
-                    <input type="hidden" name="item_id" value="<?php echo $_GET['item_id']?>" >
+                    <input type="hidden" name="item_id" value="<?php echo $_GET['item_id'] ?>">
                     <div class="d-flex justify-content-between">
                         <div class="input-group w-25">
                             <span class="input-group-btn">

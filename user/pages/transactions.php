@@ -29,7 +29,7 @@
                             <td><?php echo $orders['total_price'] ?></td>
                             <td><?php echo $orders['status'] ?></td>
                             <td>
-                                <a href="" class="btn btn-sm btn-primary btn-icon-split">
+                                <a href="index.php?page=transaction_detail&id=<?php echo $orders['id']?>" class="btn btn-sm btn-primary btn-icon-split">
                                     <span class="text">Lihat Detail</span>
                                 </a>
                             </td>
@@ -41,12 +41,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="card-footer">
-        <form action="action/payment.php" method="POST" target="_blank">
-            <button type="submit" value="Pay" name="pay" class="btn btn-sm btn-primary btn-icon-split float-right">
-                <span class="text">Bayar</span>
-            </button>
-        </form>
     </div>
 </div>

@@ -21,8 +21,8 @@ switch ($page) {
         include "pages/transactions.php";
         break;
 
-    case 'transactions_detail':
-        include "pages/transactions_detail.php";
+    case 'transaction_detail':
+        include "pages/transaction_detail.php";
         break;
 
     default:

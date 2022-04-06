@@ -1,3 +1,9 @@
+<?php
+include("../config/connection_database.php");
+$sqlGet = "SELECT * FROM `carts` WHERE `user_id` = '1' ";
+$queryGet = mysqli_query($mysqli, $sqlGet);
+$cart = mysqli_num_rows($queryGet);
+?>
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
@@ -8,7 +14,9 @@
             <a class="nav-link" href="index.php?page=carts">
                 <i class="fa fa-shopping-cart"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <?php if ($cart > 0) { ?>
+                    <span class="badge badge-danger badge-counter"><?php echo $cart; ?></span>
+                <?php } ?>
             </a>
         </li>
 

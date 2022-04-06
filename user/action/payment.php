@@ -5,16 +5,15 @@ require_once '../../config/midtrans-php-master/Midtrans.php';
 \Midtrans\Config::$isSanitized = true;
 \Midtrans\Config::$is3ds = true;
 
+
 $params = array(
     'transaction_details' => array(
-        'order_id' => rand(),
-        'gross_amount' => 15000,
+        'order_id' => $_POST['order_id'],
+        'gross_amount' => $_POST['total_price'],
     ),
     'customer_details' => array(
-        'first_name' => 'budi',
-        'last_name' => 'pratama',
-        'email' => 'budi.pra@example1.com',
-        'phone' => '0811113222333',
+        'first_name' => $_POST['customer_name'],
+        'phone' => $_POST['phone_number'],
     ),
 );
 
