@@ -5,10 +5,13 @@ include_once("../../config/connection_database.php");
 if (isset($_POST['order'])) {
     $user_id = $_POST['user_id'];
     $customer_name = $_POST['customer_name'];
+    $customer_phone = $_POST['customer_phone'];
+    $customer_address = $_POST['customer_address'];
+    $order_type = $_POST['order_type'];
     $total_price = $_POST['total_price'];
 
-    $sql = "INSERT INTO `orders` (`id`, `order_date`, `user_id`, `customer_name`, `total_price`, `status`) 
-            VALUES (NULL, '2022-04-05', '$user_id', '$customer_name', '$total_price', 'pending_payment');";
+    $sql = "INSERT INTO `orders` (`id`, `order_date`, `user_id`, `customer_name`, `total_price`, `status`, `address`, `customer_phone`, `type`) 
+            VALUES (NULL, now(), '$user_id', '$customer_name', '$total_price', 'pending_payment', '$customer_address', '$customer_phone', '$order_type');";
     $query = mysqli_query($mysqli, $sql);
 
     if ($query) {

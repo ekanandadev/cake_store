@@ -8,6 +8,9 @@ $cart = mysqli_num_rows($queryGet);
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
+    <a href="index.php">
+        <span>TOKO KUE</span>
+    </a>
     <ul class="navbar-nav ml-auto">
         <!-- Nav Item - Messages -->
         <li class="nav-item dropdown no-arrow mx-1">
@@ -22,9 +25,7 @@ $cart = mysqli_num_rows($queryGet);
 
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link" href="index.php?page=transactions">
-                <i class="fa fa-shopping-cart"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <i class="fa fa-file"></i>
             </a>
         </li>
 
