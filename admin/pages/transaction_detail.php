@@ -48,14 +48,10 @@ $total = mysqli_fetch_array($querySum);
                 </table>
             </div>
             <div class="card-footer">
-                <form action="action/payment.php" method="POST" target="_blank">
+                <form action="action/finish_order.php" method="POST" target="_blank">
                     <input type="hidden" name="order_id" value="<?php echo $item['id'] ?>">
-                    <input type="hidden" name="customer_name" value="Putra">
-                    <input type="hidden" name="email" value="">
-                    <input type="hidden" name="phone_number" value="12313242">
-                    <input type="hidden" name="total_price" value="<?php echo $total['total_price'] ?>">
-                    <button type="submit" value="Order" name="order" class="btn btn-sm btn-primary btn-icon-split float-right">
-                        <span class="text">Bayar</span>
+                    <button type="submit" value="Finish" name="finish" class="btn btn-sm btn-primary btn-icon-split float-right">
+                        <span class="text">Selesaikan Pesanan</span>
                     </button>
                 </form>
             </div>
