@@ -14,4 +14,10 @@
         height: 20vh;
         object-fit: cover;
     }
+
+    .bg-login-background {
+        background: url("../assets/img/bg-login.jpg");
+        background-position: center;
+        background-size: cover;
+    }
 </style>

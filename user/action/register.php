@@ -10,8 +10,8 @@ if (isset($_POST['register'])) {
     $query = mysqli_query($mysqli, $sql);
 
     if ($query) {
-        header('Location: ../pages/register.php?status=success');
+        header('Location: ../pages/register.php?status=Berhasil Mendaftarkan Akun');
     } else {
-        header('Location: ./pages/register.php?status=failure');
+        header('Location: ./pages/register.php?error=Gagal Mendaftarkan Akun');
     }
 }

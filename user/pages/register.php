@@ -23,12 +23,35 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
+        <div class="mt-5">
+            <?php
+            if (isset($_GET['status'])) {
+            ?>
+                <div class="alert alert-success text-black" role="alert">
+                    <?php echo $_GET['status'] ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_GET['error'])) {
+            ?>
+                <div class="alert alert-danger text-black" role="alert">
+                    <?php echo $_GET['error'] ?>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="../assets/img/bg-login.jpg" alt="" width="100%" height="100%">
+                    </div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">

@@ -33,7 +33,9 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block">
+                                <img src="../assets/img/bg-login.jpg" alt="" width="100%" height="100%">
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
@@ -49,6 +51,10 @@
                                         <button class="btn btn-primary btn-user btn-block" name="login" value="Login" type="submit">
                                             Login
                                         </button>
+                                        <hr>
+                                        <a class="btn btn-secondary btn-user btn-block" href="register.php">
+                                            Register
+                                        </a>
                                     </form>
                                 </div>
                             </div>
