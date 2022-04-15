@@ -8,7 +8,13 @@ if (isset($_POST['save'])) {
     $stock = $_POST['stock'];
     $price = $_POST['price'];
 
-    $sql = "INSERT INTO `items` (`id`, `item_name`, `category_id`, `price`, `stock`) VALUES (NULL, '$item_name', '$category_id', '$stock', '$price')";
+    $fileName = $_FILES['thumbnail']['name'];
+    $fileNameTemp = $_FILES['thumbnail']['tmp_name'];
+    $dirUpload = "thumbnail/";
+    $imageFileType = pathinfo($fileName, PATHINFO_EXTENSION);
+    $uploadProcess = move_uploaded_file($fileNameTemp, $dirUpload.$item_name.".".$imageFileType);
+    $fileNameToDb = $item_name.".".$imageFileType;
+    $sql = "INSERT INTO `items` (`id`, `item_name`, `category_id`, `price`, `stock`, `thumbnail`) VALUES (NULL, '$item_name', '$category_id', '$stock', '$price', '$fileNameToDb')";
     $query = mysqli_query($mysqli, $sql);
 
     if( $query ) {
