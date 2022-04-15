@@ -14,6 +14,9 @@ while ($orderDetail = mysqli_fetch_array($querySelect)) {
     $queryItem = mysqli_query($mysqli, $sqlItem);
     $item = mysqli_fetch_array($queryItem);
     $last_stock = $item['stock'] - $orderDetail['qty'];
+    if ($last_stock < 0) {
+        $last_stock = 0;
+    }
     $sqlStock = "UPDATE `items` SET `stock` = '$last_stock' WHERE `items`.`id` = '$orderDetail[item_id]';";
     $queryStock = mysqli_query($mysqli, $sqlStock);
 }
