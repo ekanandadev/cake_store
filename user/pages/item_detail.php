@@ -1,7 +1,7 @@
 <?php include("../config/connection_database.php"); ?>
 
 <?php
-$sql = "SELECT items.item_name, items.stock, items.price, categories.category_name
+$sql = "SELECT items.item_name, items.stock, items.price, items.thumbnail, categories.category_name
             FROM items
             INNER JOIN categories ON items.category_id = categories.id WHERE items.id = '$_GET[item_id]' ";
 $query = mysqli_query($mysqli, $sql);
@@ -35,7 +35,7 @@ if (isset($_GET['error'])) {
                 <h6 class="m-0 font-weight-bold text-primary"><?php echo $item['item_name'] ?></h6>
             </div>
             <div class="card-body">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1542550371427-311e1b0427cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
+                <img class="card-img-top" src="http://localhost/toko_kue/admin/action/thumbnail/<?php echo $item['thumbnail']; ?>">
             </div>
         </div>
     </div>
