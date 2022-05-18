@@ -1,0 +1,288 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 08, 2022 at 04:00 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `cake_shop`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `category_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category_name`) VALUES
+(19, 'Jajanan Pasar'),
+(20, 'Roti');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL,
+  `item_name` varchar(50) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `thumbnail` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `item_name`, `category_id`, `price`, `stock`, `thumbnail`) VALUES
+(2, 'asdasf', 7, 3, 34, ''),
+(3, '3ert', 6, 2000, 42, ''),
+(4, 'sdf', 0, 3, 35, ''),
+(5, 'asdsdf', 8, 3, 3434, ''),
+(6, '23124', 16, 242, 34534, ''),
+(7, 'cxczv', 8, 3, 23444, ''),
+(9, 'hjjk', 19, 5, 42, ''),
+(11, 'Kue Cucur1', 191, 20001, 101, ''),
+(13, 'DFSF', 20, 3, 35, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `order_date` date NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `customer_phone` varchar(15) NOT NULL,
+  `customer_name` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `total_price` int(11) NOT NULL,
+  `type` enum('direct_order','pre_order','','') NOT NULL,
+  `status` enum('pending_payment','on_process','on_delivery','completed') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_date`, `user_id`, `customer_phone`, `customer_name`, `address`, `total_price`, `type`, `status`) VALUES
+(1, '2022-04-05', 1, '', '12', '', 21, 'direct_order', 'pending_payment'),
+(2, '2022-04-05', 123, '', '424', '', 23, 'direct_order', 'pending_payment'),
+(3, '2022-04-05', 1, '', 'Putra', '', 23, 'direct_order', 'pending_payment'),
+(4, '2022-04-05', 1, '', 'Putra', '', 23, 'direct_order', 'pending_payment'),
+(5, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(6, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(7, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(8, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(9, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(10, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(11, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'on_process'),
+(12, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(13, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(14, '2022-04-05', 1, '', 'Putra', '', 32, 'direct_order', 'pending_payment'),
+(15, '2022-04-05', 1, '', 'Putra', '', 44, 'direct_order', 'pending_payment'),
+(16, '2022-04-05', 1, '', 'Putra', '', 5, 'direct_order', 'completed'),
+(17, '2022-04-05', 1, '', 'Putra', '', 50, 'direct_order', 'pending_payment'),
+(18, '2022-04-05', 1, '', 'Putra', '', 65, 'direct_order', 'on_process'),
+(19, '2022-04-05', 1, '', 'Putra', '', 0, 'direct_order', 'pending_payment'),
+(20, '2022-04-07', 1, '1231242', 'TES', 'Mlg', 0, 'pre_order', 'pending_payment'),
+(21, '2022-04-07', 1, '1231444', 'TES', 'TES', 50, 'direct_order', 'pending_payment'),
+(22, '2022-04-07', 1, '1231421221', 'QWERTY', 'EWQR', 50, 'direct_order', 'on_process'),
+(23, '2022-04-07', 1, '5324324', 'DSD', 'SFSFS', 20, 'pre_order', 'completed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `item_price` int(11) NOT NULL,
+  `total_price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `qty`, `item_price`, `total_price`) VALUES
+(1, 1, 21, 123, 12, 12),
+(2, 1, 21, 123, 12, 12),
+(3, 1, 21, 123, 12, 12),
+(4, 7, 21, 123, 12, 12),
+(5, 7, 21, 123, 12, 12),
+(6, 12, 13, 4, 4, 4),
+(7, 12, 9, 4, 4, 4),
+(8, 13, 13, 4, 3, 4),
+(9, 13, 9, 4, 5, 4),
+(10, 14, 13, 4, 3, 4),
+(11, 14, 9, 4, 5, 4),
+(12, 15, 13, 3, 3, 3),
+(13, 15, 9, 7, 5, 7),
+(14, 16, 9, 1, 5, 1),
+(15, 17, 9, 10, 5, 10),
+(16, 18, 13, 5, 3, 5),
+(17, 18, 9, 10, 5, 10),
+(18, 20, 13, 8, 3, 8),
+(19, 20, 9, 80, 5, 80),
+(20, 21, 9, 10, 5, 10),
+(21, 22, 9, 10, 5, 10),
+(22, 23, 9, 4, 5, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('admin','user') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
+(6, 'Test Admin', 'test_admin', '01b114342d7fc811669eb24dbe609cc4', 'admin'),
+(7, 'asd', 'asfa', 'asfas', ''),
+(8, 'dsasd', '123123', '00b46d8e8f2d6b99c20e2eb4811ccd9f', 'user'),
+(9, 'gerer', 'dffbdfg', '429c4d630cf49e2c1b1664c8a7469654', 'user'),
+(10, 'dfgdf', 'sdfsdf', 'eacebf157dbfbeea07873f168c4be744', 'user'),
+(11, 'sdf', 'sdgsd', '37e0c86903875b5673b5cd4b03fe8082', 'user'),
+(12, 'dfssdgds', 'sdfsdf', 'd9729feb74992cc3482b350163a1a010', 'user'),
+(13, 'dsfsg', 'sdfsd', 'eacebf157dbfbeea07873f168c4be744', 'user'),
+(14, 'tes', 'tes', '28b662d883b6d76fd96e4ddc5e9ba780', 'user');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
