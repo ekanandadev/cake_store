@@ -6,7 +6,7 @@
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
                     <h6>Daftar User</h6>
-                    <a href="index.php?page=item_add" class="btn btn-primary btn-sm mb-0">Tambah User</a>
+                    <a href="index.php?page=user_add" class="btn btn-primary btn-sm mb-0">Tambah User</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">

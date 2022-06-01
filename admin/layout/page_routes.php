@@ -25,6 +25,10 @@ switch ($page) {
         include "pages/user.php";
         break;
 
+    case 'user_add':
+        include "pages/user_add.php";
+        break;
+
     case 'orders':
         include "pages/transactions.php";
         break;
