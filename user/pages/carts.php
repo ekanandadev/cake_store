@@ -74,7 +74,7 @@ $is_pre_order = false;
                     </div>
                     <div class="form-group">
                         <label>Jenis Pesanan (Jika Pesanan Lebih Besar Daripada Stok Maka Harus Menggunakan Pre Order)</label>
-                        <select class="form-control" name="order_type">
+                        <select class="form-control" name="order_type" id="order_type">
                             <?php if ($is_pre_order == false) { ?>
                                 <option selected>Jenis Pesanan</option>
                                 <option value="direct_order">Non Pre Order</option>
@@ -82,11 +82,11 @@ $is_pre_order = false;
                             <option value="pre_order">Pre Order</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="po_date">
                         <label>Tanggal Pre Order</label>
                         <input type="date" class="form-control form-control-user" name="po_date">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="po_time">
                         <label>Jam Pre Order</label>
                         <input type="text" id="timepicker-24-hr" name="po_time" class="timepicker-24-hr form-control form-control-user">                    
                     </div>

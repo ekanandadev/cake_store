@@ -8,6 +8,10 @@ $item = mysqli_fetch_array($query);
 $sqlSum = "SELECT SUM(total_price) AS total_price FROM order_details";
 $querySum = mysqli_query($mysqli, $sqlSum);
 $total = mysqli_fetch_array($querySum);
+
+$sqlReview = "SELECT * FROM reviews WHERE order_id = '$_GET[id]' ";
+$queryReview = mysqli_query($mysqli, $sqlReview);
+$review = mysqli_fetch_array($queryReview);
 ?>
 
 <div class="row mt-4">
@@ -56,16 +60,25 @@ $total = mysqli_fetch_array($querySum);
                             <td>:</td>
                             <td><?php echo $item['status'] ?></td>
                         </tr>
+                        <?php if ($item['status'] == "completed")  { ?>
+                            <tr>
+                                <th scope="row">Review Pelanggan</th>
+                                <td>:</td>
+                                <td><?php echo $review['description'] ?></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
+                <?php if ($item['status'] != "completed")  { ?>
                 <form action="action/finish_order.php" method="POST" target="_blank">
                     <input type="hidden" name="order_id" value="<?php echo $item['id'] ?>">
                     <button type="submit" value="Finish" name="finish" class="btn btn-sm btn-primary btn-icon-split float-right">
                         <span class="text">Selesaikan Pesanan</span>
                     </button>
                 </form>
+                <?php } ?>
             </div>
         </div>
     </div>

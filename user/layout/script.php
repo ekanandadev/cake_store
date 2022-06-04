@@ -106,7 +106,26 @@
         });
     </script>
     <script>
-  var twelveHour = $('.timepicker-12-hr').wickedpicker();
-  $('.time').text('//JS Console: ' + twelveHour.wickedpicker('time'));
-  $('.timepicker-24-hr').wickedpicker({twentyFour: true});
+        var twelveHour = $('.timepicker-12-hr').wickedpicker();
+        $('.time').text('//JS Console: ' + twelveHour.wickedpicker('time'));
+        $('.timepicker-24-hr').wickedpicker({twentyFour: true});
+    </script>
+
+<script>
+    $(document).ready(function(){
+        $("#po_date").hide();
+        $("#po_time").hide();
+        $('#order_type').on('change', function() {
+        if ( this.value == "pre_order")
+        {
+            $("#po_date").show();
+            $("#po_time").show();
+        }
+        else
+        {
+            $("#po_date").hide();
+            $("#po_time").hide();
+        }
+        });
+    });
 </script>

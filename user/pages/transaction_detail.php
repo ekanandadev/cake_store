@@ -99,7 +99,7 @@ $review = mysqli_num_rows($queryReview);
                             <?php
                             $no = 1;
                             $total_price = 0;
-                            $sql = "SELECT * FROM order_details WHERE `order_id` = '$item[id]' ";
+                            $sql = "SELECT * FROM order_details WHERE `order_id` = '$detail[id]' ";
                             $query = mysqli_query($mysqli, $sql);
                             while ($cart = mysqli_fetch_array($query)) {
                                 $sqlItem = "SELECT items.id, items.item_name, items.stock, items.price, categories.category_name
