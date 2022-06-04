@@ -39,6 +39,18 @@ $total = mysqli_fetch_array($querySum);
                             <td>:</td>
                             <td><?php echo $item['total_price'] ?></td>
                         </tr>
+                        <?php if ($item['type'] == "pre_order") { ?>
+                        <tr>
+                            <th scope="row">Tanggal Pre Order</th>
+                            <td>:</td>
+                            <td><?php echo $item['po_date'] ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Jam Pre Order</th>
+                            <td>:</td>
+                            <td><?php echo $item['po_time'] ?></td>
+                        </tr>
+                        <?php } ?>
                         <tr>
                             <th scope="row">Status</th>
                             <td>:</td>

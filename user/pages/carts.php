@@ -82,6 +82,14 @@ $is_pre_order = false;
                             <option value="pre_order">Pre Order</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Tanggal Pre Order</label>
+                        <input type="date" class="form-control form-control-user" name="po_date">
+                    </div>
+                    <div class="form-group">
+                        <label>Jam Pre Order</label>
+                        <input type="text" id="timepicker-24-hr" name="po_time" class="timepicker-24-hr form-control form-control-user">                    
+                    </div>
                 </div>
             </div>
         </div>

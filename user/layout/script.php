@@ -14,6 +14,8 @@
     <!-- Page level custom scripts -->
     <script src="assets/js/demo/chart-area-demo.js"></script>
     <script src="assets/js/demo/chart-pie-demo.js"></script>
+    <script src="assets/vendor/jquery-timepicker/dist/wickedpicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -103,3 +105,8 @@
             }
         });
     </script>
+    <script>
+  var twelveHour = $('.timepicker-12-hr').wickedpicker();
+  $('.time').text('//JS Console: ' + twelveHour.wickedpicker('time'));
+  $('.timepicker-24-hr').wickedpicker({twentyFour: true});
+</script>
