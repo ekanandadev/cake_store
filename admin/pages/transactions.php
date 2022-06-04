@@ -21,7 +21,7 @@
                         <tbody>
                             <?php
                             $no = 1;
-                            $sql = "SELECT * FROM orders WHERE `user_id` = '1' ";
+                            $sql = "SELECT * FROM orders";
                             $query = mysqli_query($mysqli, $sql);
                             while ($orders = mysqli_fetch_array($query)) {
                             ?>
