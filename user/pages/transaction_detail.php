@@ -43,7 +43,7 @@ $review = mysqli_num_rows($queryReview);
                             <td>:</td>
                             <td><?php echo $detail['total_price'] ?></td>
                         </tr>
-                        <?php if ($item['type'] == "pre_order") {?>
+                        <?php if ($detail['type'] == "pre_order") {?>
                         <tr>
                             <th scope="row">Tanggal Pre Order</th>
                             <td>:</td>
@@ -65,10 +65,10 @@ $review = mysqli_num_rows($queryReview);
             </div>
             <div class="card-footer">
                 <form action="action/payment.php" method="POST" target="_blank">
-                    <input type="hidden" name="order_id" value="<?php echo $item['id'] ?>">
-                    <input type="hidden" name="customer_name" value="<?php echo $item['customer_name'] ?>">
+                    <input type="hidden" name="order_id" value="<?php echo $detail['id'] ?>">
+                    <input type="hidden" name="customer_name" value="<?php echo $detail['customer_name'] ?>">
                     <input type="hidden" name="email" value="">
-                    <input type="hidden" name="phone_number" value="<?php echo $item['customer_phone'] ?>">
+                    <input type="hidden" name="phone_number" value="<?php echo $detail['customer_phone'] ?>">
                     <input type="hidden" name="total_price" value="<?php echo $total['total_price'] ?>">
                     <button type="submit" value="Order" name="order" class="btn btn-sm btn-primary btn-icon-split float-right">
                         <span class="text">Bayar</span>
