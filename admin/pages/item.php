@@ -18,12 +18,13 @@
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kategori</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Harga</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stock</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gambar</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT items.id, items.item_name, items.stock, items.price, categories.category_name
+                            $sql = "SELECT items.id, items.item_name, items.stock, items.price, categories.category_name, items.thumbnail
                             FROM items
                             INNER JOIN categories ON items.category_id = categories.id;";
                             $query = mysqli_query($mysqli, $sql);
@@ -41,6 +42,11 @@
                                     </td>
                                     <td>
                                         <p class="text-sm font-weight-bold mb-0 px-3"><?php echo $item['stock'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0 px-3">                
+                                            <img style="width: 150px;" src="http://localhost/cake_store/admin/action/thumbnail/<?php echo $item['thumbnail']; ?>">
+                                        </p>
                                     </td>
                                     <td class="col-md-2 align-right">
                                         <a href="index.php?page=item_edit&id=<?php echo $item['id'] ?>" class="btn btn-success btn-sm mb-0 mx-1" name="delete">Ubah</button>

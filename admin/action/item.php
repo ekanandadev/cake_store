@@ -29,8 +29,19 @@ if (isset($_POST['save'])) {
     $stock = $_POST['stock'];
     $price = $_POST['price'];
 
-    $sql = "UPDATE `items` SET `item_name` = '$item_name', `category_id` = '$category_id', `price` = '$price', `stock` = '$stock' WHERE `items`.`id` = '$id';";
-    $query = mysqli_query($mysqli, $sql);
+    if ($_FILES['thumbnail']['name'] != "") {
+        $fileName = $_FILES['thumbnail']['name'];
+        $fileNameTemp = $_FILES['thumbnail']['tmp_name'];
+        $dirUpload = "thumbnail/";
+        $imageFileType = pathinfo($fileName, PATHINFO_EXTENSION);
+        $uploadProcess = move_uploaded_file($fileNameTemp, $dirUpload.$item_name.".".$imageFileType);
+        $fileNameToDb = $item_name.".".$imageFileType;
+        $sql = "UPDATE `items` SET `item_name` = '$item_name', `category_id` = '$category_id', `price` = '$price', `stock` = '$stock', `thumbnail` = '$fileNameToDb' WHERE `items`.`id` = '$id';";
+        $query = mysqli_query($mysqli, $sql);
+    } else {
+        $sql = "UPDATE `items` SET `item_name` = '$item_name', `category_id` = '$category_id', `price` = '$price', `stock` = '$stock' WHERE `items`.`id` = '$id';";
+        $query = mysqli_query($mysqli, $sql);
+    }
 
     if( $query ) {
         header('Location: ../index.php?page=item_edit&status=success&id='.$id);

@@ -23,7 +23,7 @@ if (isset($_GET['status'])) {
                 <h6>Tambah Item</h6>
             </div>
             <div class="card-body">
-                <form role="form" action="action/item.php" method="POST">
+                <form role="form" action="action/item.php" method="POST" enctype="multipart/form-data">
                     <input class="form-control" type="hidden" name="id" value="<?php echo $item['id'] ?>">
                     <div class="row">
                         <div class="col-md-6">
@@ -61,6 +61,14 @@ if (isset($_GET['status'])) {
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Harga</label>
                                 <input class="form-control" type="number" name="price" value="<?php echo $item['price'] ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Upload Foto : </label>
+                                <input type="file" name="thumbnail" />
                             </div>
                         </div>
                     </div>
