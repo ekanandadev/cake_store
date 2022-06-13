@@ -1,17 +1,37 @@
 <?php include("../config/connection_database.php"); ?>
 
+
 <div class="row">
-    <a href="index.php?page=home" class="btn btn-<?php if (!isset($_GET['category_id'])) { echo "primary"; } else { echo "secondary"; } ?> mx-3 float-left">Semua</a>
-    <?php
-    $sql = "SELECT * FROM `categories` ";
-    $query = mysqli_query($mysqli, $sql);
-    while ($item = mysqli_fetch_array($query)) {
-    ?>
-        <a href="index.php?page=home&category_id=<?php echo $item['id']; ?>" class="btn btn-<?php if ($_GET['category_id'] == $item['id']) { echo "primary"; } else { echo "secondary"; } ?> mx-3 float-left"><?php echo $item['category_name']; ?></a>
-    <?php
-    }
-    ?>
+    <div class="col-8">
+        <a href="index.php?page=home" class="btn btn-<?php if (!isset($_GET['category_id'])) { echo "primary"; } else { echo "secondary"; } ?> mx-3 float-left">Semua</a>
+        <?php
+        $sql = "SELECT * FROM `categories` ";
+        $query = mysqli_query($mysqli, $sql);
+        while ($item = mysqli_fetch_array($query)) {
+        ?>
+            <a href="index.php?page=home&category_id=<?php echo $item['id']; ?>" class="btn btn-<?php if ($_GET['category_id'] == $item['id']) { echo "primary"; } else { echo "secondary"; } ?> mx-3 float-left"><?php echo $item['category_name']; ?></a>
+        <?php
+        }
+        ?>
+    </div>
+    <div class="col-4">
+        <form class="user" method="GET" action="index.php">
+            <div class="row">
+                <input type="hidden" name="page" value="home">
+                <div class="input-group col-10">
+                    <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control h-full" placeholder="Cari Kue" name="query">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary btn-user btn-block" type="submit">
+                        Cari
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+
 
 <div class="row mt-4">
     <?php
@@ -21,9 +41,15 @@
         FROM items
         INNER JOIN categories ON items.category_id = categories.id WHERE items.category_id = '$category_id'; ";
     } else {
-        $sql = "SELECT items.id, items.item_name, items.stock, items.price, items.thumbnail, categories.category_name
-        FROM items
-        INNER JOIN categories ON items.category_id = categories.id; ";
+        if (isset($_GET['query'])) {
+            $sql = "SELECT items.id, items.item_name, items.stock, items.price, items.thumbnail, categories.category_name
+            FROM items
+            INNER JOIN categories ON items.category_id = categories.id WHERE items.item_name like '%".$_GET['query']."%'; ";
+        } else {
+            $sql = "SELECT items.id, items.item_name, items.stock, items.price, items.thumbnail, categories.category_name
+            FROM items
+            INNER JOIN categories ON items.category_id = categories.id; ";
+        }
     }
     $query = mysqli_query($mysqli, $sql);
     while ($item = mysqli_fetch_array($query)) {
