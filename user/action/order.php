@@ -9,11 +9,17 @@ if (isset($_POST['order'])) {
     $customer_address = $_POST['customer_address'];
     $order_type = $_POST['order_type'];
     $total_price = $_POST['total_price'];
-    $po_date = $_POST['po_date'];
-    $po_time = $_POST['po_time'];
-    $hour = substr($po_time, 0, 2);
-    $minutes = substr($po_time, -2);
-    $po_time_formatted = $hour.":".$minutes;
+    if ($order_type == "pre_order") {
+        $po_date = $_POST['po_date'];
+        $po_time = $_POST['po_time'];
+        $hour = substr($po_time, 0, 2);
+        $minutes = substr($po_time, -2);
+        $po_time_formatted = $hour.":".$minutes;
+    } else {
+        $po_date = "0000-00-00";
+        $po_time_formatted = "00:00:00";
+    }
+
 
     $sql = "INSERT INTO `orders` (`id`, `order_date`, `user_id`, `customer_name`, `total_price`, `status`, `address`, `customer_phone`, `type`, `po_date`, `po_time`) 
             VALUES (NULL, now(), '$user_id', '$customer_name', '$total_price', 'pending_payment', '$customer_address', '$customer_phone', '$order_type', '$po_date','$po_time_formatted');";
@@ -39,6 +45,6 @@ if (isset($_POST['order'])) {
             header('Location: ../index.php?page=transaction_detail&status=successs&id='.$last_id);
         }
     } else {
-        header('Location: ../index.php?page=item_detail&status=failure&item_id=' . $item_id);
+        header('Location: ../index.php?page=carts');
     }
 }
