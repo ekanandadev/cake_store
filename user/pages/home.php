@@ -2,27 +2,27 @@
 
 
 <div class="row">
-    <div class="col-8">
-        <a href="index.php?page=home" class="btn btn-<?php if (!isset($_GET['category_id'])) { echo "primary"; } else { echo "secondary"; } ?> mx-3 float-left">Semua</a>
+    <div class="col-lg-8 col-sm-12 mb-3 lg-mb-0">
+        <a href="index.php?page=home" class="btn btn-<?php if (!isset($_GET['category_id'])) { echo "primary"; } else { echo "secondary"; } ?> mx-0 lg-mx-3 float-left">Semua</a>
         <?php
         $sql = "SELECT * FROM `categories` ";
         $query = mysqli_query($mysqli, $sql);
         while ($item = mysqli_fetch_array($query)) {
         ?>
-            <a href="index.php?page=home&category_id=<?php echo $item['id']; ?>" class="btn btn-<?php if ($_GET['category_id'] == $item['id']) { echo "primary"; } else { echo "secondary"; } ?> mx-3 float-left"><?php echo $item['category_name']; ?></a>
+            <a href="index.php?page=home&category_id=<?php echo $item['id']; ?>" class="btn btn-<?php if ($_GET['category_id'] ?? 0 == $item['id']) { echo "primary"; } else { echo "secondary"; } ?> mx-0 lg-mx-3 ml-2 float-left"><?php echo $item['category_name']; ?></a>
         <?php
         }
         ?>
     </div>
-    <div class="col-4">
+    <div class="col-lg-4 col-sm-12">
         <form class="user" method="GET" action="index.php">
             <div class="row">
                 <input type="hidden" name="page" value="home">
-                <div class="input-group col-10">
+                <div class="input-group col-lg-10 col-8">
                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                     <input type="text" class="form-control h-full" placeholder="Cari Kue" name="query">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2 col-4">
                     <button class="btn btn-primary btn-user btn-block" type="submit">
                         Cari
                     </button>
@@ -60,7 +60,7 @@
                     <h6 class="m-0 font-weight-bold text-primary"><?php echo $item['item_name'] ?></h6>
                 </div>
                 <div class="card-body">
-                    <img class="card-img-top" src="http://localhost/toko_kue/admin/action/thumbnail/<?php echo $item['thumbnail']; ?>">
+                    <img class="card-img-top" src="http://localhost/cake_store/admin/action/thumbnail/<?php echo $item['thumbnail']; ?>">
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">

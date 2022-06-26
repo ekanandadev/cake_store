@@ -74,8 +74,8 @@ if (isset($_GET['error'])) {
                 <form role="form" action="action/cart.php" method="POST">
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
                     <input type="hidden" name="item_id" value="<?php echo $_GET['item_id'] ?>">
-                    <div class="d-flex justify-content-between">
-                        <div class="input-group w-25">
+                    <div class="row">
+                        <div class="input-group col-md-4 col-12 mb-3 mb-lg-0">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="qty">
                                     <span class="fa fa-minus"></span>
@@ -88,7 +88,7 @@ if (isset($_GET['error'])) {
                                 </button>
                             </span>
                         </div>
-                        <button type="submit" value="Save" name="save" class="btn btn-sm btn-primary btn-icon-split">
+                        <button type="submit" value="Save" name="save" class="btn btn-sm btn-primary btn-icon-split col-md-8 col-12">
                             <span class="text">Tambahkan Ke Keranjang</span>
                         </button>
                     </div>

@@ -5,9 +5,9 @@ $queryGet = mysqli_query($mysqli, $sqlGet);
 $cart = mysqli_num_rows($queryGet);
 ?>
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+    <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
-    </button>
+    </button> -->
     <a href="index.php">
         <span>TOKO KUE</span>
     </a>
