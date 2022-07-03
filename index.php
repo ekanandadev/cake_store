@@ -173,6 +173,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="admin/action/thumbnail/<?php echo $item['thumbnail']; ?>">
+                                <img src="admin/action/thumbnail/<?php echo $item['thumbnail']; ?>" alt="" style="height:100%; object-fit: cover;">
                                 <div class="product__label">
                                     <span><?php echo $item['category_name']; ?></span>
                                 </div>
