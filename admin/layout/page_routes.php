@@ -37,6 +37,10 @@ switch ($page) {
         include "pages/transaction_detail.php";
         break;
 
+    case 'report':
+        include "pages/report.php";
+        break;
+    
     default:
         include "pages/dashboard.php";
 }
